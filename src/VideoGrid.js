@@ -29,7 +29,11 @@ function VideoGrid() {
     { title: 'Video 1', thumbnail: 'https://via.placeholder.com/300x200' },
     { title: 'Video 2', thumbnail: 'https://via.placeholder.com/300x200' },
     { title: 'Video 3', thumbnail: 'https://via.placeholder.com/300x200' },
+    { title: 'Video 4', thumbnail: 'https://via.placeholder.com/300x200' },
+    { title: 'Video 5', thumbnail: 'https://via.placeholder.com/300x200' },
+    { title: 'Video 6', thumbnail: 'https://via.placeholder.com/300x200' },
   ];
+
 
   return (
     <GridContainer>
