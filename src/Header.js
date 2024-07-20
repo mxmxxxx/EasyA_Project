@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -26,7 +27,25 @@ const SearchBar = styled.input`
   padding: 8px;
   border-radius: 4px;
   border: none;
-  width: 40%;
+  width: 60%;
+`;
+
+const RightContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const SignInButton = styled.button`
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #FF4500;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
 `;
 
 const ButtonContainer = styled.div`
@@ -50,6 +69,16 @@ const Button = styled.button`
 `;
 
 function Header() {
+  const navigate = useNavigate();
+
+  const login = () => {
+    navigate('/login');
+  };
+
+  const signup = () => {
+    navigate('/signup');
+  };
+
   return (
     <HeaderContainer>
       <Logo>My Video Site</Logo>
