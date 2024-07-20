@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from './auth/Firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -30,24 +33,6 @@ const SearchBar = styled.input`
   width: 60%;
 `;
 
-const RightContainer = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-const SignInButton = styled.button`
-  padding: 8px 16px;
-  border-radius: 4px;
-  border: none;
-  background-color: #FF4500;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 10px;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   gap: 10px;
@@ -70,6 +55,7 @@ const Button = styled.button`
 
 function Header() {
   const navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
   const login = () => {
     navigate('/login');
@@ -79,6 +65,11 @@ function Header() {
     navigate('/signup');
   };
 
+  const signout = async () => {
+    await signOut(auth);
+    navigate('/');
+  };
+
   return (
     <HeaderContainer>
       <Logo>My Video Site</Logo>
@@ -86,7 +77,14 @@ function Header() {
         <SearchBar placeholder="Search..." />
       </SearchContainer>
       <ButtonContainer>
-        <Button>Sign Up</Button>
+        {!user ? (
+          <>
+            <Button onClick={login}>Login</Button>
+            <Button onClick={signup}>Sign Up</Button>
+          </>
+        ) : (
+          <Button onClick={signout}>Log Out</Button>
+        )}
         <Button>Connect Wallet</Button>
       </ButtonContainer>
     </HeaderContainer>
