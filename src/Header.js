@@ -19,14 +19,34 @@ const SearchBar = styled.input`
   padding: 8px;
   border-radius: 4px;
   border: none;
-  width: 40%;
+  width: 60%;
+`;
+
+const RightContainer = styled.div`
+  width: 50%;
+  justify-content: right;
+`;
+
+const SignInButton = styled.button`
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #FF4500;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
 `;
 
 function Header() {
   return (
     <HeaderContainer>
       <Logo>My Video Site</Logo>
-      <SearchBar placeholder="Search..." />
+      <RightContainer>
+        <SignInButton>Log In</SignInButton>
+        <SignInButton>Sign Up</SignInButton>
+        <SearchBar placeholder="Search..." />
+      </RightContainer>
     </HeaderContainer>
   );
 }
