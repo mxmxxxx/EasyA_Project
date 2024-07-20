@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const SidebarContainer = styled.div`
   width: 200px;
@@ -18,12 +19,14 @@ const NavItem = styled.div`
 `;
 
 function Sidebar() {
+  const navigate = useNavigate();
+
   return (
     <SidebarContainer>
-      <NavItem>Home</NavItem>
-      <NavItem>Trending</NavItem>
-      <NavItem>Subscriptions</NavItem>
-      <NavItem>Library</NavItem>
+      <NavItem onClick={() => navigate('/')}>Home</NavItem>
+      <NavItem onClick={() => navigate('/trending')}>Trending</NavItem>
+      <NavItem onClick={() => navigate('/subscriptions')}>Subscriptions</NavItem>
+      <NavItem onClick={() => navigate('/MyAccount')}>My Account</NavItem>
     </SidebarContainer>
   );
 }
