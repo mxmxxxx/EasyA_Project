@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -24,7 +25,9 @@ const SearchBar = styled.input`
 
 const RightContainer = styled.div`
   width: 50%;
-  justify-content: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const SignInButton = styled.button`
@@ -39,12 +42,22 @@ const SignInButton = styled.button`
 `;
 
 function Header() {
+  const navigate = useNavigate();
+
+  const login = () => {
+    navigate('/login');
+  };
+
+  const signup = () => {
+    navigate('/signup');
+  };
+
   return (
     <HeaderContainer>
       <Logo>My Video Site</Logo>
       <RightContainer>
-        <SignInButton>Log In</SignInButton>
-        <SignInButton>Sign Up</SignInButton>
+        <SignInButton onClick={login}>Log In</SignInButton>
+        <SignInButton onClick={signup}>Sign Up</SignInButton>
         <SearchBar placeholder="Search..." />
       </RightContainer>
     </HeaderContainer>
