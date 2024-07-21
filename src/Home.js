@@ -47,9 +47,9 @@ const ContentWrapper = styled.div`
 function Home() {
   return (
     <div>
-      <WalletConnection />
       <Layout>
         <HeaderWrapper>
+          <WalletConnection />
           <Header />
         </HeaderWrapper>
         <SidebarWrapper>
