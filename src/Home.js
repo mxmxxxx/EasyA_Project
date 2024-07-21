@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import VideoGrid from './VideoGrid';
+import WalletConnection from './WalletConnection';
 
 const Container = styled.div`
   display: flex;
@@ -15,6 +16,8 @@ const MainContent = styled.div`
 function Home() {
   return (
     <>
+        <WalletConnection />
+        
       <Header />
       <Container>
         <Sidebar />
