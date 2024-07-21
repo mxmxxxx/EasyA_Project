@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Web3 from 'web3';
 
-const contractAddress = '0x01B5Cc658847cFcbcBCf464Ed3a5eDBDf5d99784';
-const contractAbi = [
+export const contractAddress = '0x01B5Cc658847cFcbcBCf464Ed3a5eDBDf5d99784';
+export const contractAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
