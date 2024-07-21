@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import WalletConnection from './WalletConnection';
 
 const SidebarContainer = styled.div`
   width: 200px;
@@ -26,6 +27,7 @@ function Sidebar() {
       <NavItem onClick={() => navigate('/subscriptions')}>Subscriptions</NavItem>
       <NavItem onClick={() => navigate('/myaccount')}>My Account</NavItem>
     </SidebarContainer>
+    
   );
 }
 
