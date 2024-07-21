@@ -1,6 +1,6 @@
 import React from 'react';
-import Creator from './Creator';
-import Upload from './Upload';
+import Creator from './screens/Creator';
+import Upload from './screens/Upload';
 import Video from './Video';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './Home';

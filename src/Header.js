@@ -39,7 +39,7 @@ const SearchBar = styled.input`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 10px;
-  margin-right: 20px; 
+  margin-right: 50px;
 `;
 
 const Button = styled.button`

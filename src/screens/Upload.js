@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
-import { contractAddress, contractAbi } from './WalletConnection';
+import { contractAddress, contractAbi } from '../WalletConnection';
 
 const Upload = () => {
   const [account, setAccount] = useState(null);

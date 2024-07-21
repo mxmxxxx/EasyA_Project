@@ -5,10 +5,9 @@ import WalletConnection from './WalletConnection';
 
 const SidebarContainer = styled.div`
   width: 200px;
-  background-color: #202020;
+  background-color: £202020; 
   color: white;
-  height: 100vh;
-  padding-top: 20px;
+  margin-top: 100px;
 `;
 
 const NavItem = styled.div`
