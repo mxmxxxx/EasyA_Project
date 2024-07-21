@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from './auth/Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;

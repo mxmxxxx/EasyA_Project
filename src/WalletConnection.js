@@ -349,93 +349,92 @@ const WalletConnection = () => {
   const [hasProfile, setHasProfile] = useState(null);
 
 // Button handler button for handling a
-// request event for metamask
-const btnhandler = () => {
-    if (window.ethereum) {
-        window.ethereum
-            .request({ method: "eth_requestAccounts" })
-            .then((res) =>
-                accountChangeHandler(res[0])
-            );
-    } else {
-        alert("install metamask extension!!");
-    }
-};
+	// request event for metamask
+	const btnhandler = () => {
+		if (window.ethereum) {
+			window.ethereum
+				.request({ method: "eth_requestAccounts" })
+				.then((res) =>
+						accountChangeHandler(res[0])
+				);
+		} else {
+			alert("install metamask extension!!");
+		}
+	};
 
-// getbalance function for getting a balance in
-// a right format with help of ethers
-const getbalance = (address) => {
-    // Requesting balance method
-    window.ethereum
-        .request({
-            method: "eth_getBalance",
-            params: [address, "latest"],
-        })
-        .then((balance) => {
-            // Setting balance
-            setBalance(parseInt(Number(balance)) / (10 ** 18));
-        });
-};
+	// getbalance function for getting a balance in
+	// a right format with help of ethers
+	const getbalance = (address) => {
+		// Requesting balance method
+		window.ethereum
+			.request({
+				method: "eth_getBalance",
+				params: [address, "latest"],
+			})
+			.then((balance) => {
+				// Setting balance
+				setBalance(parseInt(Number(balance)) / (10 ** 18));
+		});
+	};
 
-// Function for getting handling all events
-const accountChangeHandler = (account) => {
-    // Setting an address data
-    setAddress(account);
+	// Function for getting handling all events
+	const accountChangeHandler = (account) => {
+		// Setting an address data
+		setAddress(account);
 
-    // Setting a balance
-    getbalance(account);
-};
+		// Setting a balance
+		getbalance(account);
+	};
 
-const checkProfile = async () => {
-  if (!address) {
-    setError('Please connect your MetaMask wallet.');
-    return;
-  }
+	const checkProfile = async () => {
+		if (!address) {
+			setError('Please connect your MetaMask wallet.');
+			return;
+		}
 
-  try {
-    const web3 = new Web3(window.ethereum);
-    const contract = new web3.eth.Contract(contractAbi, contractAddress);
-    const result = await contract.methods.hasProfile().call({ from: address });
-    setHasProfile(result);
-    if (result === false) {
-      const username = prompt('Enter your username for your profile: ');
-      try {
-        const result = await contract.methods.setProfile(username).send({ from: address });
-      console.log(result);
-      } catch (err) {
-        console.log('Failed to set profile.');
-      }
-      
-    }
-  } catch (err) {
-    setError('Failed to execute contract function.');
-  }
-};
+		try {
+			const web3 = new Web3(window.ethereum);
+			const contract = new web3.eth.Contract(contractAbi, contractAddress);
+			const result = await contract.methods.hasProfile().call({ from: address });
+			setHasProfile(result);
+			if (result === false) {
+				const username = prompt('Enter your username for your profile: ');
+				try {
+					const result = await contract.methods.setProfile(username).send({ from: address });
+				console.log(result);
+				} catch (err) {
+					console.log('Failed to set profile.');
+				}
+				
+			}
+		} catch (err) {
+			setError('Failed to execute contract function.');
+		}
+	};
 
-return (
-    <div className="App">
-        {/* Calling all values which we 
-   have stored in usestate */}
+	return (
+		<div className="App">
+			{/* Calling all values which we have stored in usestate */}
 
-                <strong>Address: </strong>
-                {address}
+				<strong>Address: </strong>
+				{address}
 
-                    <strong>Balance: </strong>
-                    {balance}
-                    SYB
-                <button
-                    onClick={btnhandler}
-                    variant="primary"
-                >
-                    Connect Wallet
-                </button>
-                <button onClick={checkProfile}>Check Profile</button>
-          {hasProfile !== null && (
-            <p><strong>Has Profile:</strong> {hasProfile.toString()}</p>
-          )}
-          {error && <p>{error}</p>}
-    </div>
-);
+					<strong>Balance: </strong>
+					{balance}
+					SYB
+				<button
+					onClick={btnhandler}
+					variant="primary"
+				>
+					Connect Wallet
+				</button>
+				<button onClick={checkProfile}>Check Profile</button>
+				{hasProfile !== null && (
+					<p><strong>Has Profile:</strong> {hasProfile.toString()}</p>
+				)}
+			{error && <p>{error}</p>}
+		</div>
+	);
 };
 
 export default WalletConnection;

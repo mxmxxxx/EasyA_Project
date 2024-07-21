@@ -46,22 +46,20 @@ const ContentWrapper = styled.div`
 
 function Home() {
   return (
-    <>
-        <WalletConnection />
-        
-      <Header />
-      <Container>
-    <Layout>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
-      <SidebarWrapper>
-        <Sidebar />
-      </SidebarWrapper>
-      <ContentWrapper>
-        <VideoGrid />
-      </ContentWrapper>
-    </Layout>
+    <div>
+      <WalletConnection />
+      <Layout>
+        <HeaderWrapper>
+          <Header />
+        </HeaderWrapper>
+        <SidebarWrapper>
+          <Sidebar />
+        </SidebarWrapper>
+        <ContentWrapper>
+          <VideoGrid />
+        </ContentWrapper>
+      </Layout>
+    </div>
   );
 }
 
