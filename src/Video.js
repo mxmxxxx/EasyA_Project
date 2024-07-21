@@ -59,7 +59,7 @@ const Video = () => {
         {result && (
             <div>
                 {console.log(result)}
-            <p>Title: {result["0"]}</p>
+            <p>Title: {result}</p>
             <p>Description: {result["1"]}</p>
         <video controls>
             <source src={result["2"]} type="video/mp4" />
