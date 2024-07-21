@@ -28,7 +28,7 @@ const HeaderWrapper = styled.div`
 const SidebarWrapper = styled.div`
   grid-area: sidebar;
   position: fixed;
-  top: 60px; /* Adjust this value based on the height of your header */
+  top: 80px; /* Adjust this value based on the height of your header */
   height: calc(100vh - 60px); /* Adjust this value based on the height of your header */
   width: 200px; /* Width of the sidebar */
   background-color: #202020; /* Background color of the sidebar */
@@ -37,7 +37,7 @@ const SidebarWrapper = styled.div`
 const ContentWrapper = styled.div`
   grid-area: content;
   margin-left: 70px; /* Width of the sidebar */
-  margin-top: 60px; /* Height of the header */
+  margin-top: 80px; /* Height of the header */
   overflow-y: auto;
   height: calc(100vh - 60px); /* Height of the content area */
   padding: 20px;
@@ -46,17 +46,20 @@ const ContentWrapper = styled.div`
 
 function Home() {
   return (
-    <Layout>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
-      <SidebarWrapper>
-        <Sidebar />
-      </SidebarWrapper>
-      <ContentWrapper>
-        <VideoGrid />
-      </ContentWrapper>
-    </Layout>
+    <div>
+      <Layout>
+        <HeaderWrapper>
+          <WalletConnection />
+          <Header />
+        </HeaderWrapper>
+        <SidebarWrapper>
+          <Sidebar />
+        </SidebarWrapper>
+        <ContentWrapper>
+          <VideoGrid />
+        </ContentWrapper>
+      </Layout>
+    </div>
   );
 }
 
