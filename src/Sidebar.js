@@ -35,6 +35,7 @@ function Sidebar() {
       <NavItem onClick={() => navigate('/')}>Home</NavItem>
       <NavItem onClick={() => navigate('/subscriptions')}>Subscriptions</NavItem>
       <NavItem onClick={() => navigate('/myaccount')}>My Account</NavItem>
+      <NavItem onClick={() => navigate('/upload-video')}>Upload Video</NavItem>
       <WalletContainer>
         <WalletConnection />
       </WalletContainer>
