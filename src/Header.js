@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from './auth/Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import WalletConnection from './WalletConnection';
+
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -85,7 +87,6 @@ function Header() {
         ) : (
           <Button onClick={signout}>Log Out</Button>
         )}
-        <Button>Connect Wallet</Button>
       </ButtonContainer>
     </HeaderContainer>
   );
