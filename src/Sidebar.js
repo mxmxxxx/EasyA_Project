@@ -24,9 +24,8 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <NavItem onClick={() => navigate('/')}>Home</NavItem>
-      <NavItem onClick={() => navigate('/trending')}>Trending</NavItem>
       <NavItem onClick={() => navigate('/subscriptions')}>Subscriptions</NavItem>
-      <NavItem onClick={() => navigate('/MyAccount')}>My Account</NavItem>
+      <NavItem onClick={() => navigate('/myaccount')}>My Account</NavItem>
     </SidebarContainer>
   );
 }

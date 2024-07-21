@@ -5,7 +5,8 @@ import About from './About';
 import Contact from './Contact';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
-import MyAccount from './MyAccount';
+import MyAccount from './screens/MyAccount';
+import Subscription from './screens/Subscription';
 import './App.css';
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/MyAccount" element={<MyAccount />} />
+          <Route path="/myaccount" element={<MyAccount />} />
+          <Route path="/subscriptions" element={<Subscription />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
