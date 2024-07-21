@@ -442,7 +442,7 @@ const WalletConnection = () => {
 
 				<strong>Address: </strong>
 				{address}
-
+				<br />
 					<strong>Balance: </strong>
 					{balance}
 					SYB

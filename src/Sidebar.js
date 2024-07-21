@@ -15,6 +15,8 @@ const WalletContainer = styled.div`
   background-color: £202020; 
   color: white;
   margin-top: 30px;
+  word-wrap: break-word;
+  white-space: normal;
 `;
 
 const NavItem = styled.div`
@@ -33,7 +35,9 @@ function Sidebar() {
       <NavItem onClick={() => navigate('/')}>Home</NavItem>
       <NavItem onClick={() => navigate('/subscriptions')}>Subscriptions</NavItem>
       <NavItem onClick={() => navigate('/myaccount')}>My Account</NavItem>
-      <WalletConnection />
+      <WalletContainer>
+        <WalletConnection />
+      </WalletContainer>
     </SidebarContainer>
     
     

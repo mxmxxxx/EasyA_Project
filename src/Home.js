@@ -35,7 +35,8 @@ const SidebarWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   grid-area: content;
-  margin-left: 70px; /* Width of the sidebar */
+  margin-left: 50px; /* Width of the sidebar */
+  margin-right: 50px;
   margin-top: 80px; /* Height of the header */
   overflow-y: auto;
   padding: 20px;
