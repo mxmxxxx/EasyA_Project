@@ -15,9 +15,10 @@ const HeaderContainer = styled.header`
   width: 100%;
 `;
 
-const Logo = styled.div`
-  font-size: 24px;
-  font-weight: bold;
+const Logo = styled.img`
+  height: 70px;
+  width: 15%;
+  background-color: red;
 `;
 
 const SearchContainer = styled.div`
@@ -72,7 +73,7 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <Logo>My Video Site</Logo>
+      <Logo src="/assets/logo.png" alt={"Logo"} />
       <SearchContainer>
         <SearchBar placeholder="Search..." />
       </SearchContainer>
