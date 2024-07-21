@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
 import { contractAddress, contractAbi } from '../WalletConnection';
@@ -12,7 +12,7 @@ const Upload = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  useState(() => {
+  useEffect(() => {
     const connectWallet = async () => {
       const provider = await detectEthereumProvider();
 
@@ -54,29 +54,54 @@ const Upload = () => {
   };
 
   return (
-    <div>
-      <h2>Upload Video</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
-        </div>
-        <div>
-          <label>Video URL:</label>
-          <input type="url" value={videoURL} onChange={(e) => setVideoURL(e.target.value)} required />
-        </div>
-        <div>
-          <label>Image URL:</label>
-          <input type="url" value={imageURL} onChange={(e) => setImageURL(e.target.value)} required />
-        </div>
-        <button type="submit">Create Profile</button>
-      </form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div style={{ width: '400px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
+        <h2 style={{ textAlign: 'center' }}>Upload Video</h2>
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+        {success && <p style={{ color: 'green', textAlign: 'center' }}>{success}</p>}
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Description:</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Video URL:</label>
+            <input
+              type="url"
+              value={videoURL}
+              onChange={(e) => setVideoURL(e.target.value)}
+              required
+              style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Image URL:</label>
+            <input
+              type="url"
+              value={imageURL}
+              onChange={(e) => setImageURL(e.target.value)}
+              required
+              style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+            />
+          </div>
+          <button type="submit" style={{ width: '100%', padding: '10px', background: '#4CAF50', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Upload Video</button>
+        </form>
+      </div>
     </div>
   );
 };
