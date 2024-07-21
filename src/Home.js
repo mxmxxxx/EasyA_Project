@@ -62,4 +62,5 @@ function Home() {
   );
 }
 
+export { Layout, HeaderWrapper, SidebarWrapper, ContentWrapper };
 export default Home;
