@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Web3 from 'web3';
 
-export const contractAddress = '0x01B5Cc658847cFcbcBCf464Ed3a5eDBDf5d99784';
+export const contractAddress = '0x3B729Fa5139BABf0fCF15e647B033b555694D547';
 export const contractAbi = [
 	{
 		"inputs": [],
@@ -210,6 +210,30 @@ export const contractAbi = [
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "username",
+				"type": "string"
+			}
+		],
+		"name": "listSellersAndPrices",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",

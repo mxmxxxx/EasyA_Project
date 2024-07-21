@@ -21,7 +21,6 @@ const HeaderContainer = styled.header`
 const Logo = styled.img`
   height: 70px;
   width: 15%;
-  background-color: red;
 `;
 
 const SearchContainer = styled.div`
@@ -76,7 +75,7 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <Logo src="/assets/logo.png" alt={"Logo"} />
+      <Logo src="/assets/output-onlinepngtools.png" alt={"Logo"} />
       <SearchContainer>
         <SearchBar placeholder="Search..." />
       </SearchContainer>

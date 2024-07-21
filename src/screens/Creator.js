@@ -9,6 +9,9 @@ const Creator = () => {
   const [account, setAccount] = useState(null);
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
+  const [keyPrice, setKeyPrice] = useState(null);
+  const [hasAccess, setHasAccess] = useState(null);
+
 
   useEffect(() => {
     const connectWallet = async () => {
@@ -46,6 +49,19 @@ const Creator = () => {
           ));
   
         setResult(formattedResult);
+
+        const price = await contract.methods.calculatePrice(username).call({ from: account });
+        console.log("price: ", price);
+        setKeyPrice(price);
+
+        const listings = await contract.methods.listSellersAndPrices(username).call({ from: account });
+        for (let i = 0; i < listings[0].length; i++) {
+          console.log("Seller: ", listings[0][i], "Price: ", listings[1][i]);
+        }
+
+        const hasAccess = await contract.methods.checkIfHoldingKey(username).call({ from: account });
+        setHasAccess(hasAccess);
+
       } catch (err) {
         setError('Failed to execute contract function.');
       }
@@ -53,6 +69,29 @@ const Creator = () => {
 
     callContractFunction();
   }, [account, username]);
+
+  const buyKey = async () => {
+    try {
+      const web3 = new Web3(window.ethereum);
+      const contract = new web3.eth.Contract(contractAbi, contractAddress);
+      const result = await contract.methods.buyNewKey(username).send({ from: account, value: keyPrice });
+      console.log(result);
+    } catch (err) {
+      setError('Failed to buy key.');
+    }
+  }
+
+  const sellKey = async () => {
+    try {
+      const web3 = new Web3(window.ethereum);
+      const contract = new web3.eth.Contract(contractAbi, contractAddress);
+      const offerPrice = prompt('Enter the price you want to sell the key for: ');
+      const result = await contract.methods.offerKeyForSale(username, offerPrice).send({ from: account });
+      console.log(result);
+    } catch (err) {
+      setError('Failed to sell key.');
+    }
+  }
 
   return (
     <div>
@@ -67,6 +106,17 @@ const Creator = () => {
           Videos: {JSON.stringify(result["3"])}
           
           </p>
+        </div>
+      )}
+      {keyPrice && (
+        <div>
+          <p><strong>Key Price:</strong> {keyPrice}</p>
+          <button onClick={buyKey}>Buy Key</button>
+        </div>
+      )}
+      {hasAccess && (
+        <div>
+          <button onClick={sellKey}>Sell Key</button>
         </div>
       )}
     </div>
