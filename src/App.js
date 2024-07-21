@@ -1,4 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import Creator from './Creator';
+import Upload from './Upload';
+import Video from './Video';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './Home';
 import About from './About';
@@ -19,6 +26,9 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/subscriptions" element={<Subscription />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/creator/:username" element={<Creator />} />
+          <Route path="/upload-video" element={<Upload />} />
+          <Route path="/video/:username/:videoId" element={<Video />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import VideoGrid from './VideoGrid';
+import WalletConnection from './WalletConnection';
 
 const Layout = styled.div`
   display: grid;
@@ -45,6 +46,11 @@ const ContentWrapper = styled.div`
 
 function Home() {
   return (
+    <>
+        <WalletConnection />
+        
+      <Header />
+      <Container>
     <Layout>
       <HeaderWrapper>
         <Header />
